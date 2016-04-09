@@ -1,0 +1,12 @@
+We begin by exploring a field that reflects our input back to the page without sanitization.
+
+The "access code" field is found to reflect user input back without any sanitization, and therefore we craft our solution around this exploit
+
+input: ABCD
+HTML : <div id="message" class="info"><BR> * Whoops, you entered [ABCD] instead of your three digit code.  Please try again.</div>
+
+We would like to inject a simple alert() inside this code, first terminate the <div> then wrap alert() inside <script></script> and finally begin another <div>
+
+solution (inject into 'access code' field):
+
+</div><script>alert('Hello world!');</script><div>
