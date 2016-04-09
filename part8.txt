@@ -1,0 +1,12 @@
+We noticed that:
+
+101 AND True  gives valid account
+101 AND False gives invalid account
+
+We could use this fact to find out the pin number, it works as follow:
+
+(SELECT pin FROM pins WHERE cc_number='1111222233334444') < K is true iff pin for 11...44 is less than K
+(SELECT pin FROM pins WHERE cc_number='1111222233334444') > K is true iff pin for 11...44 is greater than K
+
+101 AND stm where stm is (SELECT pin FROM pins WHERE cc_number='1111222233334444') > K can tell us the range of pin number, use bianry search to repeatadly shrink our search space until the final result of 2364 is found
+
