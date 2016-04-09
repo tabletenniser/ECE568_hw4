@@ -1,5 +1,5 @@
 As it is explained in the Hint, this email message field is the one that is explitable and the following code was inserted into the message field:
 
-<img src='attack?Screen=273&menu=900&transferFunds=5000'>
+<img src='attack?Screen=273&menu=900&transferFunds=5000' width='1' height='1'>
 
-When the victim opens the "image" from email, he / she will transfer an amount of 5000 dollars to the account if he/she is authenticated. The victim has no way of knowing the "image url" actually points to an external website that performs the money transfer instead of a actual picture.
+When the victim opens the "image" from email, he / she will transfer an amount of 5000 dollars to the account if he/she is authenticated. The victim has no way of knowing the "image url" actually points to an external website that performs the money transfer instead of a actual picture. The width and height attibutes of img tag is used to hide the broken image icon.
